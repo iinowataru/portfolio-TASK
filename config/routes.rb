@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
-  get 'genres/index'
-  get 'genres/create'
-  get 'genres/edit'
-  get 'genres/update'
-  get 'posts/index'
-  get 'posts/show'
-  get 'posts/edit'
-  get 'posts/update'
-  get 'posts/destroy'
-  get 'items/index'
-  get 'items/show'
-  get 'items/edit'
-  get 'items/update'
-  get 'items/destroy'
-  get 'customers/index'
-  get 'customers/show'
-  get 'customers/edit'
-  get 'customers/update'
+  devise_for :users
+  #devise_for :customers
+  root to: 'homes#top'
+  
+  resources :customers, only: [:index, :show, :edit, :update]
+  resources :items, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :genres, only: [:index, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
