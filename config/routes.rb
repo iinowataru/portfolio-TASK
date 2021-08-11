@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'genres/index'
+  get 'genres/create'
+  get 'genres/edit'
+  get 'genres/update'
   get 'posts/index'
   get 'posts/show'
   get 'posts/edit'
