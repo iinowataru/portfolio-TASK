@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+  get 'posts/show'
+  get 'posts/edit'
+  get 'posts/update'
+  get 'posts/destroy'
   get 'items/index'
   get 'items/show'
   get 'items/edit'
