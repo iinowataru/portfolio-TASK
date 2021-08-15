@@ -1,0 +1,18 @@
+ <div class="container-fluid col-lg-10">
+ <div class="row">
+  <div class="col-md-3 mb-3">
+  </div>
+ </div>
+  <h1>会員詳細</h1>
+  <table class = 'table'>
+   <tr><%= attachment_image_tag @customer, :image, :fill, 100, 100, format: 'jpeg' %></tr>
+   <tr>
+     <th>名前</th><th></th>
+     <th><%= @customer.last_name %></th>
+     <th><%= @customer.first_name %></th>
+   </tr>
+  </table>
+</div>
+ 
+ 
+
