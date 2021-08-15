@@ -20,9 +20,9 @@
 - 気になった商品、購入予定の商品等の評価や使用例を確認をする時
 
 ## 設計書
-- テーブル定義書
+- テーブル定義書  
 https://docs.google.com/spreadsheets/d/1rcH8ZpEwUtUwKXxJcZWL18Larng6WlrcJgBrQPHJWvc/edit?usp=sharing
-- アプリケーション詳細設計
+- アプリケーション詳細設計  
 https://docs.google.com/spreadsheets/d/1fM_OaPm-qkVroWul5dj4qCT7f2lhslPdl1nXRBPP6Vg/edit?usp=sharing
 
 ## チャレンジ要素一覧
