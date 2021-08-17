@@ -1,0 +1,7 @@
+<% if @model == 'item' %>
+ <h3>「商品検索結果」検索ワード:<%= @content %></h3>
+ <%= render 'items/index', items: @records %>
+<% else @model == 'genres' %>
+ <h3>「ジャンル検索結果」検索ワード:<%= @content %></h3>
+  <%= render 'genres/index', genres: @records %>
+<% end %>
