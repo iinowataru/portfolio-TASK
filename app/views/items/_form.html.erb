@@ -1,0 +1,22 @@
+<div class="container-fluid">
+ <div class='row'>
+  <div class="col-2 mt-5">
+  </div>
+　　<h1>商品新規登録</h1>
+　 <%= form_with model: @item, local: true do |f| %>
+　  <th>商品画像</th>
+　
+　  <th>商品名</th>
+　  <td><%= f.text_field :name %></td>
+　  <th>JANコード</th>
+　  <td><%= f.text_field :jan_code %></td>
+　  <th>ジャンル</th>
+　  
+　  <td>
+    
+    </td>
+　  <%= f.submit "商品登録", class:'btn btn-success' %>
+　  <% end %>
+ </div>
+</div>
+ 

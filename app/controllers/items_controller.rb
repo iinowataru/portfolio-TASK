@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to item_path(@item.id)
+    redirect_to items_path
   end
   
   def edit
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to item_path(@item.id)
+    redirect_to item_path
   end
 
   def destroy
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   
   private
 def item_params
-  params.require(:item).permit(:genre_id, :name, :describe, :jan_code, :image_id)
+  params.permit(:genre_id, :name, :describe, :jan_code, :image_id)
 end
   
 end
