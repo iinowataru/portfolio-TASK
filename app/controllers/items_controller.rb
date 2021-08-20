@@ -1,16 +1,24 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @items = Item.all
+    @item = Item.new
   end
 
   def show
     @item = Item.find(params[:id])
+    @item_new = Item.new
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to items_path
+    if @item.save
+     redirect_to item_path(@item), notice: "投稿成功しました"
+    else
+     @items = Item.all
+     render 'index'
+    end
   end
   
   def edit

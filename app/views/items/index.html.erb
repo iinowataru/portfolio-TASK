@@ -1,31 +1,13 @@
-<div class="container-fluid">
+<div class="container- px-6 px-sm-0">
  <div class='row'>
-  <div class="col-2 mt-5">
-  </div>
   <div class='col-8 offset-1'>
    <h1>商品一覧(全<%= @items.all.count %>件)</h1>
-   <thead class='thead-white'>
-    <tr>
-    <th>商品画像</th>
-    <th>商品名</th>
-    <th>JANコード</th>
-    <th>ジャンル</th>
-    </tr>
-   </thead>
-    <% @items.each do |item| %>
-   <tbody>
-     <tr>
-      <td><%= attachment_image_tag item, :image %></td>
-      <td><%= image_tag %></td>
-      <td><%= item.name %></td>
-      <td><%= item.jan_code %></td>
-      <td><%= item.genre.name %></td>
-     </tr>
-    <% end %>
-   </tbody>
-   
+    <%= render 'index', item: @item %>
+  </div>
+   <div class="mx-auto">
+   <h2>商品登録</h2>
     <%= render 'form', items: @items %>
-   
- </div>
+   </div>
+ 
  </div>
 </div>

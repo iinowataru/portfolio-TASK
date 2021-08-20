@@ -1,22 +1,17 @@
-<div class="container-fluid">
- <div class='row'>
-  <div class="col-2 mt-5">
-  </div>
-　　<h1>商品新規登録</h1>
-　 <%= form_with model: @item, local: true do |f| %>
+
+　<%= form_with model:@item, local: true do |f| %>
+　<div class="form-group"> 
 　  <th>商品画像</th>
-　
+　   <td><%= f.attachment_field :image %></td>
 　  <th>商品名</th>
-　  <td><%= f.text_field :name %></td>
+　   <td><%= f.text_field :name %></td>
 　  <th>JANコード</th>
-　  <td><%= f.text_field :jan_code %></td>
+　   <td><%= f.text_field :jan_code %></td>
+　  <th>商品説明</th>
+　   <td><%= f.text_field :describe %></td>
 　  <th>ジャンル</th>
-　  
-　  <td>
-    
-    </td>
-　  <%= f.submit "商品登録", class:'btn btn-success' %>
-　  <% end %>
- </div>
-</div>
- 
+  </div>
+　<div class="form-group">
+　 <%= f.submit "商品登録", class:'btn btn-success' %>
+　 <% end %>
+  </div>
