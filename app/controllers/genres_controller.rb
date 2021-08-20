@@ -5,9 +5,12 @@ class GenresController < ApplicationController
   end
 
   def create
-    genre = Genre.new(genre_params)
-    genre.save
-    redirect_to genre_path
+    @genre = Genre.new
+    if @genre.save
+    redirect_to genres_path
+    else
+     render 'index'
+    end
   end
 
   def edit
@@ -16,16 +19,22 @@ class GenresController < ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    if @genre.update(genre_path)
-     redirect_to genre_path
+    if @genre.update(genre_params)
+     redirect_to genres_path
     else
      render 'edit'
     end
   end
   
+  def destroy
+    @genres = Item.find(params[:id])
+    @genres.destroy
+    redirect_to genres_path
+  end
+  
   private
  def post_params
-  params.require(:genre).permit(:name)
+  params.require(:genre).permit(:name, :item_id)
  end
   
 end

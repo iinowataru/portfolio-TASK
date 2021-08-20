@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @item_new = Item.new
+    @post = Post.new
   end
 
   def create
@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   
   private
 def item_params
-  params.permit(:genre_id, :name, :describe, :jan_code, :image_id)
+  params.require(:item).permit(:name, :describe, :jan_code, :image_id)
 end
   
 end
