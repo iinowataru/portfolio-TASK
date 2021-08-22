@@ -15,4 +15,25 @@
    </tr>
   <% end %>
   </table>
+  <table class= 'table'>
+   <div class="col-md-3 mb-3">
+  </div>
+ </div>
+  <h1>会員情報登録</h1>
+  <%= form_with model:@customer, local:true do |f| %>
+  <tbody>
+   <tr>
+    <td><%= f.attachment_field :image %></td>
+   </tr>
+   <tr>
+    <th>氏名</th>
+    <td><%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"田中" %></td>
+    <td><%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"太郎" %></td>
+   </tr>
+    <td><%= f.submit "内容を保存", class:'btn btn-success' %></td>
+    <% end %>
+  </tbody>
+  
+    
+  </table>
 </div>

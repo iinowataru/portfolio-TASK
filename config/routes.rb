@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/search', to: 'searchs#search'
   
-  resources :customers, only: [:index, :show, :edit, :update]
+  resources :customers, only: [:index, :show, :create, :edit, :update]
   resources :items, only: [:index, :show, :create, :edit, :update, :destroy] do
    resource :faborites, only: [:create, :destroy]
    resources :posts, only: [:create, :destroy]

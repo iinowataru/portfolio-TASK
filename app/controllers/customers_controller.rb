@@ -8,6 +8,16 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def create
+    @customer = Customer.new(customer_params)
+   if @customer.save
+     redirect_to customer_path(@customer), notice: "投稿成功しました"
+   else
+     @customers = Customer.all
+     render 'index'
+   end
+  end
+  
   def edit
     @customer = Customer.find(params[:id])
   end
@@ -20,7 +30,7 @@ class CustomersController < ApplicationController
   
  private
  def customer_params
-  params.require(:customer).permit(:last_name, :first_name, :email, :password, :image)
+  params.require(:customer).permit(:last_name, :first_name, :image)
  end
 
 end

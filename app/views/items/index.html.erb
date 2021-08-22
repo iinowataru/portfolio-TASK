@@ -1,5 +1,6 @@
 <div class="container- px-6 px-sm-0">
  <div class='row'>
+   <%= render 'layouts/header' %>
   <div class='col-8 offset-1'>
    <h1>商品一覧(全<%= @items.all.count %>件)</h1>
     <%= render 'index', item: @item %>
@@ -8,6 +9,7 @@
    <h2>商品登録</h2>
     <%= render 'form', items: @items %>
    </div>
+   </div>
+    <%= render 'layouts/footer' %>
  
- </div>
 </div>

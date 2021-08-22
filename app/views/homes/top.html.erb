@@ -1,6 +1,11 @@
+  <%= render 'layouts/header' %>
+ 
+ 
  <h1>Evaluation Foods</h1>
   <p>このwebサイトは食品のレビュー投稿サイトです</p>
   <p>ご利用のお客様は以下のボタンから会員登録をお願いします</p>
   <p>会員登録済みのお客様は以下のボタンからログインをお願いします<p>
    <th><%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-success" %></th>
    <th><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></th>
+   
+   <%= render 'layouts/footer' %>
