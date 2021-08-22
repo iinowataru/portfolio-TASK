@@ -70,3 +70,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails'
 end
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
