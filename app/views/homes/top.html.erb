@@ -1,11 +1,26 @@
   <%= render 'layouts/header' %>
  
- 
+ <div class="container">
+  <div class="row">
+   <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
  <h1>Evaluation Foods</h1>
   <p>このwebサイトは食品のレビュー投稿サイトです</p>
   <p>ご利用のお客様は以下のボタンから会員登録をお願いします</p>
   <p>会員登録済みのお客様は以下のボタンからログインをお願いします<p>
-   <th><%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-success" %></th>
-   <th><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></th>
-   
+ <div class="btn-wrapper col-10 mx-auto">
+  <div class="row">
+   <table>
+   <tr>
+    <th><%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-success" %></th>
+   </tr>
+   <tr>
+    <th><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></th>
+   </tr>
+   </table>
+   </div>
+   </div>
+  </div>
+  </div>
+ </div>
+ 
    <%= render 'layouts/footer' %>

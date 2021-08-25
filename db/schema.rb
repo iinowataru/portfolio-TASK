@@ -15,10 +15,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_083408) do
   create_table "customers", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "email", null: false
-    t.string "password", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

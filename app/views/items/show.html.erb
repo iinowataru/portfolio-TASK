@@ -1,56 +1,30 @@
-<div class="inner">
+<%= render 'layouts/header' %>
+<div class="container- px-8 px-sm-4">
+ <div class='row'>
   <h1>商品詳細</h1>
-  <thead class='thead-white'>
+ <table class='table table-hover table-inverse'>
+  <thead>
     <tr>
     <th>商品画像</th>
     <th>商品名</th>
     <th>JANコード</th>
     <th>ジャンル</th>
+    <th></th>
+    <th></th>
     </tr>
    </thead>
    <tbody>
-    <td><%= attachment_image_tag @item, :image %></td>
+    <td><%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %></td>
     <td><%= @item.name %></td>
     <td><%= @item.jan_code %></td>
     <td><%= @item.genre.name %></td>
    
-   <% if customer_signd_in? && @item.customer_id == current_customer.id %>
-    <td><%= link_to '商品情報を編集する', edit_item_path(@item),method: :get %></td>
-    <td><%= link_to '商品情報を削除する',item_path(@item),method: :delete, data: { confir,: '本当に消しますか？' } %></td>
-   <% end %>
+ 
+    <td><%= link_to '商品情報を編集する', edit_item_path(@item), class:'btn btn-success'%></td>
+    <td><%= link_to '商品情報を削除する',item_path(@item),method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger' %></td>
+
    </tbody>
- <div class="posts">
-  <th>コメント件数<%= @item.post_comments.count %></th>
-  <th>投稿者</th>
-  <th>投稿タイトル</th>
-  <th>投稿文</th>
-  <th>いいね</th>
-  <% @item.posts.each do |post| %>
-   <td><%= post.customer.name %></td>
-   <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
-   <td><%= post.title %></td>
-   <td><%= post.body %></td>
-   <% if post_comment.customer == current_customer %>
-   <%= link_to "削除", item_post_path(post.item, post), method: :delete %>
-   <% end %>
-   <%= if @item.favorited_by?(current_customer) %>
-   <td><%= link_to item_favorites_path(@item), method: :delete do %>
-    ♥<%= @item.favorites.count %>いいね
-   <% end %>
-   </td>
-   <% else %>
-   <td><%= link_to item_favorites_path(@item), method: :post do %>
-    ♡<%= @item.favorites.count %>いいね
-   <% end %>
-   </td>
-  <% end %>
-  <% end %>
+   </table>
  </div>
- <div class="new-post">
-  <%= form_with(model:[@item,@post], local: true) do |f| %>
-   <%= f.text_field :title %>
-   <%= f.text_area :body, rows"5" %>
-   <%= f.submit '投稿する', class:'btn btn-success' %>
-  <% end %>
- </div>
+    <%= render 'layouts/footer' %>
 </div>

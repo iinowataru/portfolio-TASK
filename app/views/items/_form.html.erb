@@ -1,15 +1,25 @@
  <%= form_with model: @item, local: true do |f| %>
+ <table class= 'table'>
 　<div class="form-group"> 
+　 <tr>
 　  <th>商品画像</th>
 　   <td><%= f.attachment_field :image %></td>
+　   <th></th>
+　 </tr>
+　 <tr>
 　  <th>商品名</th>
 　   <td><%= f.text_field :name %></td>
 　  <th>JANコード</th>
 　   <td><%= f.text_field :jan_code %></td>
+　 </tr>
+　 <tr>
 　  <th>商品説明</th>
 　   <td><%= f.text_field :describe %></td>
 　  <th>ジャンル</th>
+　   <td> <%= f.collection_select(:genre_id, @genres, :id, :name) %></td>
+　 </tr>
   </div>
+  </table>
 　<div class="form-group">
 　 <%= f.submit "商品登録", class:'btn btn-success' %>
 　 <% end %>

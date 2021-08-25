@@ -6,19 +6,19 @@
     <th>JANコード</th>
     <th>商品説明</th>
     <th>ジャンル</th>
-    <th>コメント件数</th>
     </tr>
    </thead>
     <% @items.each do |item| %>
    <tbody>
      <tr>
       <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
-      <td><%= image_tag %></td>
-      <td><%= item.name %></td>
+      <td>
+       <%= link_to item_path(item.id) do %>
+       <%= item.name %>
+       <% end %></td>
       <td><%= item.jan_code %></td>
       <td><%= item.describe %></td>
       <td><%= item.genre.name %></td>
-      <td><%= link_to "#{item.posts.count} 件", item_path(item.id) %></td>
      </tr>
     <% end %>
    </tbody>

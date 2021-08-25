@@ -1,11 +1,13 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @genre = Genre.new
     @genres =  Genre.all
+    @genre = Genre.new
   end
 
   def create
-    @genre = Genre.new
+    @genre = Genre.new(genre_params)
     if @genre.save
     redirect_to genres_path
     else
@@ -27,14 +29,14 @@ class GenresController < ApplicationController
   end
   
   def destroy
-    @genres = Item.find(params[:id])
+    @genres = Genre.find(params[:id])
     @genres.destroy
     redirect_to genres_path
   end
   
   private
- def post_params
-  params.require(:genre).permit(:name, :item_id)
+ def genre_params
+  params.require(:genre).permit(:name)
  end
   
 end

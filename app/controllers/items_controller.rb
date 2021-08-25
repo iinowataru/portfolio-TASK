@@ -1,14 +1,16 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   def index
     @items = Item.all
-    @item = Item.new
+    @item = Item.new 
+    @genres = Genre.all
   end
 
   def show
     @item = Item.find(params[:id])
     @post = Post.new
+    @genres = Genre.all
   end
 
   def create
@@ -40,7 +42,7 @@ class ItemsController < ApplicationController
   
   private
 def item_params
-  params.require(:item).permit(:name, :describe, :jan_code, :image_id)
+  params.require(:item).permit(:name, :describe, :jan_code, :image, :genre_id)
 end
   
 end
