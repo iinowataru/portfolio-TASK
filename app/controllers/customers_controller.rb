@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
   
   def index
     @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(5)
     @customer = Customer.new
   end
 
@@ -28,6 +29,12 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
     redirect_to customer_path(@customer.id)
+  end
+  
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+    redirect_to customers_path
   end
   
  private

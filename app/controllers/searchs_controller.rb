@@ -1,4 +1,5 @@
 class SearchsController < ApplicationController
+ 
   def search
     @model = params["model"]
     @content = params["content"]
@@ -9,10 +10,10 @@ class SearchsController < ApplicationController
 private
  def search_for(model, content, method)
    if model == 'item'
-    if mothod == 'perfect'
+    if method == 'perfect'
      Item.where(name: content)
     else
-    Item.where('name LIKE ?', '%'+content+'%')
+     Item.where('name LIKE ?', '%'+content+'%')
     end
    elsif model == 'genre'
      if method == 'perfect'

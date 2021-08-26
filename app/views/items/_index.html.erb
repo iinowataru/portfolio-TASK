@@ -6,20 +6,20 @@
     <th>JANコード</th>
     <th>商品説明</th>
     <th>ジャンル</th>
+    <th></th>
     </tr>
    </thead>
     <% @items.each do |item| %>
    <tbody>
      <tr>
       <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
-      <td>
-       <%= link_to item_path(item.id) do %>
-       <%= item.name %>
-       <% end %></td>
+      <td><%= item.name %></td>
       <td><%= item.jan_code %></td>
       <td><%= item.describe %></td>
       <td><%= item.genre.name %></td>
+      <td><%= link_to '商品詳細', item_path(item.id), class:'btn btn-primary' %></td>
      </tr>
     <% end %>
+    <tr><td><%= paginate @items %></td></tr>
    </tbody>
   </table>

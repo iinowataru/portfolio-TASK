@@ -8,6 +8,7 @@
     <th>商品画像</th>
     <th>商品名</th>
     <th>JANコード</th>
+    <th>商品説明</th>
     <th>ジャンル</th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %></td>
     <td><%= @item.name %></td>
     <td><%= @item.jan_code %></td>
+    <td><%= @item.describe %></td>
     <td><%= @item.genre.name %></td>
    
  

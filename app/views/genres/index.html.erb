@@ -8,7 +8,7 @@
    <%= form_with model:@genre, local: true do |f| %>
     <%= f.label :name, "ジャンル名" %>
     <%= f.text_field :name, placeholder: "ジャンル名" %>
-    <%= f.submit '変更を保存する', class: 'btn btn-success' %>
+    <%= f.submit '新規登録', class: 'btn btn-success' %>
    <% end %>
    </br></br>
   </div>
@@ -24,10 +24,11 @@
      <% @genres.each do |genre| %>
      <tr>
        <td><%= genre.name %></td>
-       <td><%= link_to "編集する", edit_genre_path(genre), class:"btn btn-success" %></td>
+       <td><%= link_to "編集する", edit_genre_path(genre), class:"btn btn-primary" %></td>
        <td><%= link_to "削除する", genre_path(genre),method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
      </tr>
      <% end %>
+     <tr><td><%= paginate @genres %></td></tr>
    </tbody>
   </table>
  </div>

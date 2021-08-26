@@ -1,0 +1,33 @@
+<%= render 'layouts/header' %>
+<div class="container text-center center-block">
+ <div class="row offset-0">
+
+  <table class='table table-hover table-inverse'>
+   <thead>
+    <tr>
+      <th>商品画像</th>
+      <th>商品名</th>
+      <th>JANコード</th>
+      <th>商品説明</th>
+      <th>ジャンル名</th>
+    </tr> 
+   </thead>
+   <tbody>
+     <% genres.each do |genre| %>
+     <% genre.items.each do |item| %>
+     <tr>
+        <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
+       <td><%= link_to item_path(item.id) do %>
+       <%= item.name %>
+       <% end %></td>
+       <td><%= item.jan_code %></td>
+      　<td><%= item.describe %></td>
+       <td><%= genre.name %></td>
+     </tr>
+     <% end %>
+     <% end %>
+   </tbody>
+  </table>
+ </div>
+</div>
+<%= render 'layouts/footer' %>

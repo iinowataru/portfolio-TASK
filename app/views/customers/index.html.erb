@@ -5,20 +5,31 @@
   </div>
  </div>
   <h1>会員一覧</h1>
+  
+ <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+    <th>会員画像</th>
+    <th>会員名（姓）</th>
+    <th>会員名（名）</th>
+    <th></th>
+    <th></th>
+    </tr>
+  </thead>
   <% @customers.each do |customer| %>
-  <table class = 'table'>
+  <tbody>
    <tr>
-     <td></td><%= attachment_image_tag customer, :image, :fill, 100, 100, format: 'jpeg' %></td>
-     <th>名前</th><th></th>
+     <td><%= attachment_image_tag customer, :image, :fill, 100, 100, format: 'jpeg' %></td>
      <td><%= customer.last_name %></td>
      <td><%= customer.first_name %></td>
-     <td><%= link_to "詳細ページ", customer_path(customer), class:'btn btn-success' %></td>
+     <td><%= link_to "会員詳細", customer_path(customer), class:'btn btn-primary' %></td>
    </tr>
   <% end %>
-  </table>
+  </tbody> 
+ </table>
   <%= form_with model: @customer, local: true do |f| %>
   <table class= 'table'>
-  <h3>会員情報登録</h3>
+  <h3>会員新規登録</h3>
   <tbody>
    <tr>
     <th>会員画像</th>
@@ -29,11 +40,10 @@
     <td><%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"田中" %></td>
     <td><%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"太郎" %></td>
    </tr>
-    <td><%= f.submit "内容を保存", class:'btn btn-success' %></td>
+    <td><%= f.submit "新規登録", class:'btn btn-success' %></td>
     <% end %>
+    <tr><td><%= paginate @customers %></td></tr>
   </tbody>
-  
-    
   </table>
 </div>
 <%= render 'layouts/footer' %>

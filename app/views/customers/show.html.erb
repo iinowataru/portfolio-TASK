@@ -5,13 +5,25 @@
   </div>
  </div>
   <h1>会員詳細</h1>
-  <table class = 'table'>
-   <tr><%= attachment_image_tag @customer, :image, :fill, 100, 100, format: 'jpeg' %></tr>
+  <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+    <th>会員画像</th>
+    <th>会員名（姓）</th>
+    <th>会員名（名）</th>
+    <th></th>
+    <th></th>
+    </tr>
+  </thead>
+  <tbody>
    <tr>
-     <th>名前</th><th></th>
+     <th><%= attachment_image_tag @customer, :image, :fill, 100, 100, format: 'jpeg' %></th>
      <th><%= @customer.last_name %></th>
      <th><%= @customer.first_name %></th>
+     <th><%= link_to '登録情報を編集する', edit_customer_path(@customer), class:'btn btn-success'%></th>
+     <th><%= link_to '退会する', customer_path(@customer),method: :delete, "data-confirm" => "本当に退会してもよろしいでしょうか？", class:'btn btn-danger' %></th>
    </tr>
+  </tbody>
   </table>
 </div>
  <%= render 'layouts/footer' %>
