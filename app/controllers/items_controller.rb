@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @customers = Customer.all
     @post = Post.new
     @genres = Genre.all
   end
@@ -42,8 +43,8 @@ class ItemsController < ApplicationController
   end
   
   private
-def item_params
-  params.require(:item).permit(:name, :describe, :jan_code, :image, :genre_id)
-end
+   def item_params
+    params.require(:item).permit(:name, :describe, :jan_code, :image, :genre_id)
+   end
   
 end

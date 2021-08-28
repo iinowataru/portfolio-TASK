@@ -1,18 +1,21 @@
 <div class="posts">
- 
+  <table class='table table-hover table-inverse'>
+   <thead>
   <th>投稿者</th>
   <th>投稿タイトル</th>
   <th>投稿文</th>
   <th>いいね</th>
+   </thead>
+   <tbody>
   <% @item.posts.each do |post| %>
    <td><%= post.customer.name %></td>
    <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
    <td><%= post.title %></td>
    <td><%= post.body %></td>
-   <% if post_comment.customer == current_customer %>
+   <% if post_comment.user == current_user %>
    <%= link_to "削除", item_post_path(post.item, post), method: :delete %>
    <% end %>
-   <% if @item.favorited_by?(current_customer) %>
+   <% if @item.favorited_by?(current_user) %>
    <td><%= link_to item_favorites_path(@item), method: :delete do %>
     ♥<%= @item.favorites.count %>いいね
    <% end %>
@@ -31,5 +34,7 @@
    <%= f.text_area :body, rows="5" %>
    <%= f.submit '投稿する', class:'btn btn-success' %>
   <% end %>
+  </tbody>
+ </table>
  </div>
 </div>

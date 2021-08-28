@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_08_20_083408) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "item_id"
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_083408) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
+    t.integer "genre_id", null: false
     t.string "name", null: false
     t.text "describe", null: false
     t.string "jan_code", null: false
@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(version: 2021_08_20_083408) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "customer_id", null: false
+    t.integer "user_id", null: false
     t.integer "item_id", null: false
-    t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
