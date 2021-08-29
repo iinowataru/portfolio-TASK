@@ -8,3 +8,4 @@ class Post < ApplicationRecord
    favorites.where(post_id: post_id,user_id: current_user.id).exists?
   end
 end
+

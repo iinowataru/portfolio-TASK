@@ -15,6 +15,7 @@
     </tr>
    </thead>
    <tbody>
+    <td><%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %></td>
     <td><%= @item.name %></td>
     <td><%= @item.jan_code %></td>
     <td><%= @item.describe %></td>
@@ -35,20 +36,12 @@
    <tbody>
    <% @item.post.each do |post| %>
    <tr>
-    <td></td>
+    <td><%= @customers.last_name %><%= @customers.first_name %></td>
     <td><%= post.body %></td>
+    
     <%#= いいね機能 %>
-    <% if post.favorited_by?(current_user, post.id) %>
-   <td><%= link_to item_post_favorites_path(@item.id, post.id), method: :delete do %>
-    ♥<%= post.favorites.count %>いいね
-   <% end %>
-   </td>
-   <% else %>
-   <td><%= link_to item_post_favorites_path(@item.id, post.id), method: :post do %>
-    ♡<%= post.favorites.count %>いいね
-   <% end %>
-   </td>
-  <% end %>
+    <td><%= render partial: 'favorites/favorite', locals: { post: post} %></td>
+   
     <% if post.user == current_user %>
     <td><%= link_to "削除", item_post_path(post.item, post), method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger' %></td>
     <% end %>

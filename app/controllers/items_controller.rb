@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @customers = Customer.all
+    @customers = Customer.find(params[:id])
     @post = Post.new
     @genres = Genre.all
   end
