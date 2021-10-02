@@ -14,7 +14,7 @@
 　 </tr>
 　 <tr>
 　  <th>商品説明</th>
-　   <td><%= f.text_field :describe %></td>
+　   <td><%= f.text_area :describe %></td>
 　  <th>ジャンル</th>
 　   <td> <%= f.collection_select(:genre_id, @genres, :id, :name) %></td>
 　 </tr>
